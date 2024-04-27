@@ -345,7 +345,6 @@ export const NONFUNGIBLE_POSITION_MANAGER_ADDRESSES: AddressMap = {
 
 export const ENS_REGISTRAR_ADDRESSES: AddressMap = {
   ...constructSameAddressMap('0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e'),
-  [ChainId.MAINNET]: '0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85',
 }
 
 export const SOCKS_CONTROLLER_ADDRESSES: AddressMap = {

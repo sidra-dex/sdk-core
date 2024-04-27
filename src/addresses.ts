@@ -13,7 +13,7 @@ type ChainAddresses = {
   v1MixedRouteQuoterAddress?: string
 }
 
-const DEFAULT_NETWORKS = [ChainId.MAINNET, ChainId.GOERLI, ChainId.SEPOLIA]
+const DEFAULT_NETWORKS = [ChainId.SIDRACHAIN, ChainId.SIDRACHAIN_TESTNET]
 
 function constructSameAddressMap(address: string, additionalNetworks: ChainId[] = []): AddressMap {
   return DEFAULT_NETWORKS.concat(additionalNetworks).reduce<AddressMap>((memo, chainId) => {
@@ -48,6 +48,9 @@ export const V2_FACTORY_ADDRESSES: AddressMap = {
   [ChainId.POLYGON]: '0x9e5A52f57b3038F1B8EeE45F28b3C1967e22799C',
   [ChainId.CELO]: '0x79a530c8e2fA8748B7B40dd3629C0520c2cCf03f',
   [ChainId.BLAST]: '0x5C346464d33F90bABaf70dB6388507CC889C1070',
+  [ChainId.SIDRACHAIN]: '0xe65CF2a982d40A5109e0071a058CA54F80149181',
+  [ChainId.SIDRACHAIN_TESTNET]: '0xe65CF2a982d40A5109e0071a058CA54F80149181',
+
 }
 /**
  * @deprecated use V2_ROUTER_ADDRESSES instead
@@ -235,6 +238,14 @@ const BLAST_ADDRESSES: ChainAddresses = {
   swapRouter02Address: '0x549FEB8c9bd4c12Ad2AB27022dA12492aC452B66',
 }
 
+const SIDRACHAIN_ADDRESSES: ChainAddresses = {
+  v3CoreFactoryAddress: '0xe65CF2a982d40A5109e0071a058CA54F80149181',
+  multicallAddress: '0x7bDA2dB8F60b8fA25ea6e8E6D700aB91D7971289',
+  quoterAddress: '0xFb6DE166d42A6158aeAe73CD1DE21d26487392e9',
+  nonfungiblePositionManagerAddress: '0x2c3599e8a850D3Fa486fc92605b57D1262FfEDb1',
+  tickLensAddress: '0xc8f7B81f648a50836013D511c440fbF854705c4E',
+}
+
 export const CHAIN_TO_ADDRESSES_MAP: Record<SupportedChainsType, ChainAddresses> = {
   [ChainId.MAINNET]: MAINNET_ADDRESSES,
   [ChainId.OPTIMISM]: OPTIMISM_ADDRESSES,
@@ -257,6 +268,8 @@ export const CHAIN_TO_ADDRESSES_MAP: Record<SupportedChainsType, ChainAddresses>
   [ChainId.ZORA_SEPOLIA]: ZORA_SEPOLIA_ADDRESSES,
   [ChainId.ROOTSTOCK]: ROOTSTOCK_ADDRESSES,
   [ChainId.BLAST]: BLAST_ADDRESSES,
+  [ChainId.SIDRACHAIN]: SIDRACHAIN_ADDRESSES,
+  [ChainId.SIDRACHAIN_TESTNET]: SIDRACHAIN_ADDRESSES,
 }
 
 /* V3 Contract Addresses */
@@ -332,6 +345,7 @@ export const NONFUNGIBLE_POSITION_MANAGER_ADDRESSES: AddressMap = {
 
 export const ENS_REGISTRAR_ADDRESSES: AddressMap = {
   ...constructSameAddressMap('0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e'),
+  [ChainId.MAINNET]: '0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85',
 }
 
 export const SOCKS_CONTROLLER_ADDRESSES: AddressMap = {
